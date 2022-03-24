@@ -1,9 +1,12 @@
-type ParseArgument = any
+type ObjectWithPath = {
+    [key: string]: any,
+}
+
 export default function dotpath (str: string) {
   const parts = str.toString().split('.')
   const len = parts.length
 
-  return function parse (obj: ParseArgument) {
+  return function parse (obj: ObjectWithPath) {
     let testKey
 
     for (let i = 0; i < len; ++i) {
